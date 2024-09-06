@@ -1,134 +1,116 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layout de Vídeo</title>
+    <title>Site de Vídeos</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        header {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
-        }
-
-        header .container {
-            width: 80%;
-            margin: 0 auto;
+            background-color: #000;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #fff;
         }
-
-        header h1 {
-            margin: 0;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-        }
-
-        main {
-            display: flex;
-            justify-content: space-between;
-            width: 80%;
-            margin: 20px auto;
-        }
-
-        .video-main {
-            flex: 2;
-        }
-
-        .video-main video {
-            width: 100%;
-            height: auto;
-        }
-
-        .video-sidebar {
-            flex: 1;
-            background: #fff;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
-        .video-sidebar h2 {
-            margin-top: 0;
-        }
-
-        .video-sidebar ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .video-sidebar li {
-            margin-bottom: 10px;
-        }
-
-        .video-sidebar a {
-            text-decoration: none;
-            color: #333;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
+        .container {
             text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
+            padding: 10px;
+        }
+        .button {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .video-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px; /* Reduzi o espaço entre os vídeos */
+            padding: 0 10px; /* Ajuste os valores conforme necessário */
+        }
+        .video {
             width: 100%;
+            max-width: 300px; /* Limite máximo de largura */
+            height: auto; /* Ajusta a altura automaticamente */
+            background-color: #000;
+        }
+        video {
+            width: 100%;
+            height: auto; /* Mantém a proporção do vídeo */
+        }
+        h1 {
+            font-size: 24px; /* Ajuste o tamanho da fonte para dispositivos móveis */
+            margin: 0;
+            padding: 10px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>MeuSiteVídeos</h1>
-            <nav>
-                <a href="#">Home</a>
-                <a href="#">Categorias</a>
-                <a href="#">Favoritos</a>
-                <a href="#">Perfil</a>
-            </nav>
+    <div class="container">
+        <h1>SUBZINHAS VIP</h1>
+        <a href="https://t.me/Subzinhasacessovipbot" class="button">Acessar 250GB de Vídeos</a>
+        <div class="video-gallery">
+            <!-- Exemplo de vídeos -->
+            	<h1> NOVINHAS NA ESCOLA </h1>
+            <div class="video">
+                <video controls>
+                    <source src="55a619f9-9e07-43c2-abef-5fc6dfc578db.mp4" type="video/mp4">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+            </div>
+            <div class="video">
+                <video controls>
+                    <source src="Escolas colegio e sala de aula (8).mp4" type="video/mp4">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+            </div>
+            <div class="video">
+                <video controls>
+                    <source src="Escolas colegio e sala de aula (36).mp4" type="video/mp4">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+            </div>
+            <div class="video">
+                <video controls>
+                    <source src="1_5177386576279240847.mp4" type="video/mp4">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+            </div>
+            <div class="video">
+                <video controls>
+                    <source src="Escolas colegio e sala de aula (41).mp4" type="video/mp4">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+            </div>
+            <div class="video">
+                <video controls>
+                    <source src="Escolas colegio e sala de aula (38).mp4" type="video/mp4">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+            </div>
+            <div class="video">
+                <video controls>
+                    <source src="Escolas colegio e sala de aula (37).mp4" type="video/mp4">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+            </div>
+            <h6> para ter acesso a mais videos <a href="https://t.me/Subzinhasacessovipbot" class=>MAIS VIDEOS </a> </h6>
         </div>
-    </header>
-    
-    <main>
-        <div class="video-main">
-            <video controls>
-                <source src="video.mp4" type="video/mp4">
-                Seu navegador não suporta o formato de vídeo.
-            </video>
-        </div>
-        <div class="video-sidebar">
-            <h2>Vídeos Relacionados</h2>
-            <ul>
-                <li><a href="#" onclick="showAlert('Vídeo 1')">Vídeo 1</a></li>
-                <li><a href="#" onclick="showAlert('Vídeo 2')">Vídeo 2</a></li>
-                <li><a href="#" onclick="showAlert('Vídeo 3')">Vídeo 3</a></li>
-                <li><a href="#" onclick="showAlert('Vídeo 4')">Vídeo 4</a></li>
-            </ul>
-        </div>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 MeuSiteVídeos. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <script>
-        function showAlert(videoTitle) {
-            alert('Você clicou em: ' + videoTitle);
-        }
-    </script>
+    </div>
 </body>
 </html>
