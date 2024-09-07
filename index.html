@@ -37,6 +37,24 @@
         .button:hover {
             background-color: #0056b3;
         }
+        .copy-button {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .copy-button:hover {
+            background-color: #218838;
+        }
+        .caption {
+            margin-top: 10px;
+            font-size: 14px;
+        }
         .video-gallery {
             display: flex;
             flex-wrap: wrap;
@@ -65,9 +83,14 @@
     <div class="container">
         <h1>SUBZINHAS VIP</h1>
         <a href="https://t.me/Subzinhasacessovipbot" class="button">Acessar 250GB de Vídeos</a>
+
+        <!-- Botão Copiar URL e Legenda -->
+        <button class="copy-button" onclick="copyUrl()">Copiar URL</button>
+        <div class="caption" id="caption">COMPARTILHE O LINK DO SITE A CADA 50 ACESSO VC LIBERAR 6GB DE VIDEOS.</div>
+
         <div class="video-gallery">
             <!-- Exemplo de vídeos -->
-            	<h1> NOVINHAS NA ESCOLA </h1>
+            <h1>NOVINHAS NA ESCOLA</h1>
             <div class="video">
                 <video controls>
                     <source src="55a619f9-9e07-43c2-abef-5fc6dfc578db.mp4" type="video/mp4">
@@ -116,39 +139,50 @@
                     Seu navegador não suporta o elemento de vídeo.
                 </video>
             </div>
-                  <div class="video">
+            <div class="video">
                 <video controls>
                     <source src="VID_20240906_195436_875.mp4" type="video/mp4">
                     Seu navegador não suporta o elemento de vídeo.
                 </video>
             </div>
-                  <div class="video">
+            <div class="video">
                 <video controls>
                     <source src="VID_20240906_195442_988.mp4" type="video/mp4">
                     Seu navegador não suporta o elemento de vídeo.
                 </video>
             </div>
-                  <div class="video">
+            <div class="video">
                 <video controls>
                     <source src="VID_20240906_195451_569.mp4" type="video/mp4">
                     Seu navegador não suporta o elemento de vídeo.
                 </video>
             </div>
-                  <div class="video">
+            <div class="video">
                 <video controls>
                     <source src="VID_20240906_195456_199.mp4" type="video/mp4">
                     Seu navegador não suporta o elemento de vídeo.
                 </video>
             </div>
-                  <div class="video">
+            <div class="video">
                 <video controls>
                     <source src="VID_20240906_195511_391.mp4" type="video/mp4">
                     Seu navegador não suporta o elemento de vídeo.
                 </video>
             </div>
-            <a href="2pag.html" class="button">proxima pagina!</a>
-            <h6> para ter acesso a mais videos <a href="https://t.me/Subzinhasacessovipbot" class=>MAIS VIDEOS </a> </h6>
+            <a href="2pag.html" class="button">Próxima página!</a>
+            <h6>Para ter acesso a mais vídeos <a href="https://t.me/Subzinhasacessovipbot">MAIS VÍDEOS</a></h6>
         </div>
     </div>
+
+    <script>
+        function copyUrl() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                document.getElementById('caption').textContent = 'URL copiada para a área de transferência!';
+            }).catch(err => {
+                document.getElementById('caption').textContent = 'Falha ao copiar a URL.';
+            });
+        }
+    </script>
 </body>
 </html>
