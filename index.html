@@ -21,6 +21,7 @@
             text-align: center;
             padding: 10px;
         }
+        
         .button {
             display: inline-block;
             margin: 20px 0;
@@ -58,50 +59,29 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
-            padding: 0 10px;
+            gap: 20px; /* Reduzi o espaço entre os vídeos */
+            padding: 0 10px; /* Ajuste os valores conforme necessário */
         }
         .video {
             width: 100%;
-            max-width: 300px;
-            height: auto;
+            max-width: 300px; /* Limite máximo de largura */
+            height: auto; /* Ajusta a altura automaticamente */
             background-color: #000;
         }
         video {
             width: 100%;
-            height: auto;
+            height: auto; /* Mantém a proporção do vídeo */
         }
         h1 {
-            font-size: 24px;
+            font-size: 24px; /* Ajuste o tamanho da fonte para dispositivos móveis */
             margin: 0;
             padding: 10px;
-        }
-        .countdown {
-            position: fixed;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 12px;
-            padding: 5px 10px;
-            background: #007bff;
-            color: #fff;
-            border-radius: 5px;
-        }
-        .countdown span {
-            display: inline-block;
-            min-width: 30px;
-            padding: 5px;
-            margin: 0 3px;
-            background: #0056b3;
-            color: #fff;
-            border-radius: 5px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>SUBZINHAS VIP</h1>
-        
         <a href="https://t.me/Subzinhasacessovipbot" class="button">Acessar 250GB de Vídeos</a>
 
         <!-- Botão Copiar URL e Legenda -->
@@ -194,15 +174,6 @@
         </div>
     </div>
 
-    <!-- Contador de promoção -->
-    	<a href="https://t.me/Subzinhasacessovipbot" class=>
-    <div class="countdown" id="countdown">
-    	<div class="countdown-legend">Promoção 9,99 válida por:</div>
-        <span id="hours">10</span>h 
-        <span id="minutes">0</span>m 
-        <span id="seconds">0</span>s
-    </div>
-    </a>
     <script>
         function copyUrl() {
             const url = window.location.href;
@@ -212,32 +183,6 @@
                 document.getElementById('caption').textContent = 'Falha ao copiar a URL.';
             });
         }
-
-        // Definindo o prazo da promoção
-        const deadline = new Date().getTime() + 10 * 60 * 60 * 1000; // 10 horas a partir de agora
-
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = deadline - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById('days').textContent = String(days).padStart(2, '0');
-            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-
-            if (distance < 0) {
-                clearInterval(interval);
-                document.getElementById('countdown').innerHTML = "A promoção acabou!";
-            }
-        }
-
-        const interval = setInterval(updateCountdown, 1000);
-        updateCountdown(); // Inicializa a contagem regressiva imediatamente
     </script>
 </body>
 </html>
