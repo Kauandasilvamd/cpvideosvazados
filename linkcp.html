@@ -3,55 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Link na Bio</title>
+    <title>Link subzinhas</title>
     <style>
-    	body {
-    margin: 0;
-    background-color: #f0f0f0;
-    position: relative;
-    height: 100vh;
-}
-
-.btn-voltar {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #FF0000;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    display: inline-block;
-    text-align: center;
-}
-
-.btn-voltar:hover {
-    background-color: #0056b3;
-}
-
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Remove barras de rolagem */
+        }
+
+        .video-background {
+            position: fixed; /* Fica fixo no fundo */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Preenche o fundo sem distorcer o vídeo */
+            z-index: -1; /* Coloca o vídeo atrás do conteúdo */
+        }
+
+        .btn-voltar {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #FF0000;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: inline-block;
+            text-align: center;
+            z-index: 1; /* Coloca o botão sobre o vídeo */
+        }
+
+        .btn-voltar:hover {
+            background-color: #0056b3;
         }
 
         .container {
             text-align: center;
-            background-color: #000;
+            background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente para contraste */
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             width: 90%;
             max-width: 400px;
             padding: 20px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1; /* Coloca o conteúdo sobre o vídeo */
         }
 
         .header {
@@ -100,8 +103,8 @@
 
         .link img {
             margin-right: 10px;
-            width: 24px; /* Ajuste o tamanho conforme necessário */
-            height: 24px; /* Ajuste o tamanho conforme necessário */
+            width: 24px;
+            height: 24px;
         }
 
         .footer {
@@ -110,15 +113,22 @@
         }
     </style>
 </head>
+<br>
+	<br>
+		<br>
+			<br>
 <body>
+    <video class="video-background" autoplay muted loop>
+        <source src="lv_0_20240910220328.mp4" type="video/mp4">
+        Seu navegador não suporta a tag de vídeo.
+    </video>
+
     <a href="index.html" class="btn-voltar">Voltar</a>
-</body>
-<body>
+
     <div class="container">
         <header class="header">
             <img src="perfillink.png" alt="Foto de Perfil" class="profile-img">
             <h1>CP VENDAS</h1>
-            <br>
             <p>TANHA ACESSO A MAIS DE 1GB DE VIDEOS DE NOVINHAS ATUALIZANDO TODOS OS DIAS</p>
         </header>
         <main class="links">
@@ -133,10 +143,5 @@
             <p>&copy; 2024 CP VENDAS. Todos os direitos reservados.</p>
         </footer>
     </div>
-    <script>
-        // Aqui você pode adicionar JavaScript adicional se necessário
-        // Por exemplo, uma função para contar cliques nos links ou para exibir uma mensagem
-        console.log("Página carregada.");
-    </script>
 </body>
 </html>
