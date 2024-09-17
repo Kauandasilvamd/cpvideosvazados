@@ -1,189 +1,374 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>subzinhas vip</title>
-    <script async defer src="https://tools.luckyorange.com/core/lo.js?site-id=6f01820d"></script>
+    <title>Vídeos +18</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #000;
+            background-color: #1e1e1e;
+            color: #f0f0f0;
+        }
+
+        header {
+            background-color: #282c34;
+            color: #61dafb;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid #61dafb;
+            position: relative;
+            z-index: 1;
+        }
+
+        .menu-button {
+            background-color: #61dafb;
+            color: #1e1e1e;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .menu-button:hover {
+            background-color: #21a1f1;
+            transform: scale(1.05);
+        }
+
+        .acquire-button {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-left: 20px;
+        }
+
+        .acquire-button:hover {
+            background-color: #388e3c;
+            transform: scale(1.05);
+        }
+
+        main {
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             min-height: 100vh;
-            color: #fff;
+            padding-top: 60px; /* Espaço para o botão fixo */
         }
-        .container {
-            text-align: center;
-            padding: 10px;
-        }
-        
-        .button {
-            display: inline-block;
-            margin: 20px 0;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .button:hover {
-            background-color: #0056b3;
-        }
-        .copy-button {
-            display: inline-block;
-            margin: 20px 0;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #28a745;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .copy-button:hover {
-            background-color: #218838;
-        }
-        .caption {
-            margin-top: 10px;
-            font-size: 14px;
-        }
-        .video-gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px; /* Reduzi o espaço entre os vídeos */
-            padding: 0 10px; /* Ajuste os valores conforme necessário */
-        }
-        .video {
+
+        .video-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
             width: 100%;
-            max-width: 300px; /* Limite máximo de largura */
-            height: auto; /* Ajusta a altura automaticamente */
-            background-color: #000;
         }
+
+        .video {
+            background-color: #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .video:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
         video {
             width: 100%;
-            height: auto; /* Mantém a proporção do vídeo */
+            height: auto;
+            display: block;
         }
-        h1 {
-            font-size: 24px; /* Ajuste o tamanho da fonte para dispositivos móveis */
-            margin: 0;
-            padding: 10px;
+
+        .description {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .next-page-button {
+            background-color: #ff5722;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 40px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .next-page-button:hover {
+            background-color: #e64a19;
+            transform: scale(1.05);
+        }
+
+        .popup {
+            display: none; /* Esconde o pop-up inicialmente */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 2000;
+            padding: 0;
+            text-align: center;
+        }
+
+        .popup img {
+            width: auto;
+            height: 60vh;
+            max-height: 80vh;
+            max-width: 1000px;
+            border-radius: 10px;
+        }
+
+        .popup .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff5722;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .popup .close-btn:hover {
+            background-color: #e64a19;
+        }
+
+        .invite-panel {
+            display: none; /* Esconde o painel inicialmente */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #282c34;
+            color: #f0f0f0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 2000;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .invite-panel .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff5722;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .invite-panel .close-btn:hover {
+            background-color: #e64a19;
+        }
+
+        .invite-panel p {
+            margin: 10px 0;
+        }
+
+        .copy-button {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .copy-button:hover {
+            background-color: #388e3c;
+        }
+
+        @media (max-width: 600px) {
+            .video-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>SUBZINHAS VIP</h1>
-        <a href="linkcp.html" class="button">Acessar 1gb de Vídeos</a>
+    <header>
+        <h1>Vídeos +18</h1>
+     <a href="linkcp.html" id="acquire-button" class="acquire-button">ACESSAR MAIS DE 100 CP</button></a>
+    </header>
 
-        <!-- Botão Copiar URL e Legenda -->
-        <button class="copy-button" onclick="copyUrl()">Copiar URL</button>
-        <div class="caption" id="caption">COMPARTILHE O LINK DO SITE A CADA 50 ACESSO VC LIBERAR 6GB DE VIDEOS.</div>
+    <a href="#" id="menu-button" class="menu-button">MAIS VIDEOS GRATIS</a>
+    
+    <main>
+        <section class="video-container" id="video-container">
+            <!-- Vídeos serão adicionados aqui -->
+        </section>
+        <button id="prev-page" class="next-page-button" style="display: none;">Voltar</button>
+        <button id="next-page" class="next-page-button" style="display: none;">Avançar para a próxima página</button>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 vendas cp</p>
+    </footer>
 
-        <div class="video-gallery">
-            <!-- Exemplo de vídeos -->
-            <h1>NOVINHAS NA ESCOLA</h1>
-            <div class="video">
-                <video controls>
-                    <source src="55a619f9-9e07-43c2-abef-5fc6dfc578db.mp4" type="video/mp4">
-                    Seu navegador não suporta o elemento de vídeo.
-                </video>
-            </div>
-            <div class="video">
-                <video controls>
-                    <source src="Escolas colegio e sala de aula (8).mp4" type="video/mp4">
-                    Seu navegador não suporta o elemento de vídeo.
-                </video>
-            </div>
-            <div class="video">
-                <video controls>
-                    <source src="Escolas colegio e sala de aula (36).mp4" type="video/mp4">
-                    Seu navegador não suporta o elemento de vídeo.
-                </video>
-            </div>
-            <div class="video">
-                <video controls>
-                    <source src="1_5177386576279240847.mp4" type="video/mp4">
-                    Seu navegador não suporta o elemento de vídeo.
-                </video>
-            </div>
-            <div class="video">
-                <video controls>
-                    <source src="Escolas colegio e sala de aula (41).mp4" type="video/mp4">
-                    Seu navegador não suporta o elemento de vídeo.
-                </video>
-            </div>
-            <div class="video">
-                <video controls>
-                    <source src="Escolas colegio e sala de aula (38).mp4" type="video/mp4">
-                    Seu navegador não suporta o elemento de vídeo.
-                </video>
-            </div>
-            <div class="video">
-                <video controls>
-                    <source src="Escolas colegio e sala de aula (37).mp4" type="video/mp4">
-                    Seu navegador não suporta o elemento de vídeo.
-                </video>
-            </div>
-            <div class="video">
-                <video controls>
-                    <source src="VID_20240906_195502_337.mp4" type="video/mp4">
-                    Seu navegador não suporta o elemento de vídeo.
-                </video>
-            </div>
-            <div class="video">
-                <video controls>
-                    <source src="VID_20240906_195436_875.mp4" type="video/mp4">
-                    Seu navegador não suporta o elemento de vídeo.
-                </video>
-            </div>
-            <div class="video">
-                <video controls>
-                    <source src="VID_20240906_195442_988.mp4" type="video/mp4">
-                    Seu navegador não suporta o elemento de vídeo.
-                </video>
-            </div>
-            <div class="video">
-                <video controls>
-                    <source src="VID_20240906_195451_569.mp4" type="video/mp4">
-                    Seu navegador não suporta o elemento de vídeo.
-                </video>
-            </div>
-            <div class="video">
-                <video controls>
-                    <source src="VID_20240906_195456_199.mp4" type="video/mp4">
-                    Seu navegador não suporta o elemento de vídeo.
-                </video>
-            </div>
-            <div class="video">
-                <video controls>
-                    <source src="VID_20240906_195511_391.mp4" type="video/mp4">
-                    Seu navegador não suporta o elemento de vídeo.
-                </video>
-            </div>
-            <a href="2pag.html" class="button">Próxima página!</a>
-            <h6>Para ter acesso a mais vídeos <a href="linkcp.html">MAIS VÍDEOS</a></h6>
-        </div>
+    <!-- Pop-up -->
+    <div id="popup" class="popup">
+        <button class="close-btn">&times;</button>
+        <a href="linkcp.html" class="pop-up"><img src="Post instagram contratar advogado moderno azul e bege.png" alt="Imagem do Pop-up"></a>
+    </div>
+
+    <!-- Painel de convite -->
+    <div id="invite-panel" class="invite-panel">
+        <button class="close-btn">&times;</button>
+        <h6>a cada 10 pessoas que entrar com seu link de convite você libera 50 vídeos grátis</h6>
+        <p>Seu link de convite: <span id="site-url">http://example.com</span></p>
+        <button id="copy-url" class="copy-button">Copiar link de convite</button>
+        <p>Visitantes com seu link: <span id="visitor-count">0</span></p>
     </div>
 
     <script>
-        function copyUrl() {
-            const url = window.location.href;
-            navigator.clipboard.writeText(url).then(() => {
-                document.getElementById('caption').textContent = 'URL copiada para a área de transferência!';
-            }).catch(err => {
-                document.getElementById('caption').textContent = 'Falha ao copiar a URL.';
+        document.addEventListener('DOMContentLoaded', function() {
+            const videos = [
+                { src: '55a619f9-9e07-43c2-abef-5fc6dfc578db.mp4', description: 'Descrição do vídeo 1' },
+                { src: 'Escolas colegio e sala de aula (8).mp4', description: 'Descrição do vídeo 2' },
+                { src: 'Escolas colegio e sala de aula (36).mp4', description: 'Descrição do vídeo 3' },
+                { src: '1_5177386576279240847.mp4', description: 'Descrição do vídeo 4' },
+                { src: 'Escolas colegio e sala de aula (41).mp4', description: 'Descrição do vídeo 5' },
+                { src: 'Escolas colegio e sala de aula (38).mp4', description: 'Descrição do vídeo 6' },
+                { src: 'VID_20240907_060349_238.mp4', description: 'Descrição do vídeo 7' },
+                { src: 'VID_20240907_003733_710.mp4', description: 'Descrição do vídeo 8' },
+                { src: 'VID_20240907_003727_537.mp4', description: 'Descrição do vídeo 8' },
+                { src: 'VID_20240907_003720_411.mp4', description: 'Descrição do vídeo 9' },
+                { src: 'VID_20240907_003715_378.mp4', description: 'Descrição do vídeo 10' }
+            ];
+
+            const videosPerPage = 5;
+            let currentPage = 1;
+
+            function renderVideos(page) {
+                const container = document.getElementById('video-container');
+                container.innerHTML = '';
+
+                const start = (page - 1) * videosPerPage;
+                const end = start + videosPerPage;
+                const pageVideos = videos.slice(start, end);
+
+                pageVideos.forEach(video => {
+                    const videoElement = document.createElement('div');
+                    videoElement.className = 'video';
+                    videoElement.innerHTML = `
+                        <video controls>
+                            <source src="${video.src}" type="video/mp4">
+                            Seu navegador não suporta o formato de vídeo.
+                        </video>
+                        <div class="description">${video.description}</div>
+                    `;
+                    container.appendChild(videoElement);
+                });
+
+                // Mostrar ou ocultar os botões de navegação
+                const prevButton = document.getElementById('prev-page');
+                const nextButton = document.getElementById('next-page');
+                prevButton.style.display = currentPage > 1 ? 'inline-block' : 'none';
+                nextButton.style.display = end < videos.length ? 'inline-block' : 'none';
+            }
+
+            // Carregar vídeos da primeira página
+            renderVideos(currentPage);
+
+            // Configurar o botão "Voltar"
+            document.getElementById('prev-page').addEventListener('click', function() {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderVideos(currentPage);
+                }
             });
-        }
+
+            // Configurar o botão "Avançar para a próxima página"
+            document.getElementById('next-page').addEventListener('click', function() {
+                if ((currentPage * videosPerPage) < videos.length) {
+                    currentPage++;
+                    renderVideos(currentPage);
+                }
+            });
+
+            // Confirmar idade
+            const ageConfirmed = confirm("Você tem mais de 18 anos?");
+            if (!ageConfirmed) {
+                alert("Você precisa ter mais de 18 anos para acessar este conteúdo.");
+                window.location.href = "https://www.google.com";
+            }
+
+            // Mostrar pop-up após 10 segundos
+            setTimeout(function() {
+                document.getElementById('popup').style.display = 'block';
+            }, 10000);
+
+            // Fechar o pop-up
+            document.querySelector('.popup .close-btn').addEventListener('click', function() {
+                document.getElementById('popup').style.display = 'none';
+            });
+
+            // Mostrar painel de convite ao clicar no botão "Acessar mais vídeos"
+            document.getElementById('menu-button').addEventListener('click', function() {
+                document.getElementById('invite-panel').style.display = 'block';
+            });
+
+            // Fechar o painel de convite
+            document.querySelector('#invite-panel .close-btn').addEventListener('click', function() {
+                document.getElementById('invite-panel').style.display = 'none';
+            });
+
+            // Copiar URL ao clicar no botão "Copiar URL"
+            document.getElementById('copy-url').addEventListener('click', function() {
+                const url = document.getElementById('site-url').textContent;
+                navigator.clipboard.writeText(url).then(function() {
+                    alert('URL copiada para a área de transferência!');
+                }).catch(function(err) {
+                    console.error('Erro ao copiar a URL: ', err);
+                });    
+            });
+        });
     </script>
 </body>
-</html>
+            </html>
