@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conteúdo Bloqueado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #61dafb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #FF0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .info {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Conteúdo Bloqueado</h1>
+        <div id="loginForm">
+            <input type="email" id="email" placeholder="usuario" required>
+            <input type="password" id="senha" placeholder="Senha" required>
+            <button onclick="desbloquearConteudo()">Desbloquear</button>
+        </div>
+        <div class="info">
+            <button onclick="adquirirSenha()">Adquirir Senha de Desbloqueio</button>
+        </div>
+    </div>
+    <script>
+        function desbloquearConteudo() {
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+
+            // Substitua as credenciais abaixo pelas suas credenciais
+            const emailCorreto = 'vipnpvinhaspro';
+            const senhaCorreta = 'novinhasvipro';
+
+            if (email === emailCorreto && senha === senhaCorreta) {
+                // Redireciona para a URL
+                window.location.href = 'https://mega.nz/folder/F2kVRQDS#b5UscCtfX63kVIT1D3AsQQ';
+            } else {
+                alert('usuario ou senha incorretos!');
+            }
+        }
+
+        function adquirirSenha() {
+            // Redireciona para a URL de aquisição da senha
+            window.location.href = 'https://encurtador.com.br/55KcL'; // Substitua pela sua URL
+        }
+    </script>
+</body>
+</html>
