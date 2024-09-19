@@ -128,16 +128,18 @@
         .popup {
             display: none; /* Esconde o pop-up inicialmente */
             position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-color: rgba(0, 0, 0, 0.8);
             color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             z-index: 2000;
             padding: 0;
             text-align: center;
+            justify-content: center;
+            align-items: center;
+            display: flex; /* Usando flexbox para centralizar */
         }
 
         .popup img {
@@ -168,62 +170,6 @@
             background-color: #e64a19;
         }
 
-        .invite-panel {
-            display: none; /* Esconde o painel inicialmente */
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #282c34;
-            color: #f0f0f0;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            z-index: 2000;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .invite-panel .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #ff5722;
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .invite-panel .close-btn:hover {
-            background-color: #e64a19;
-        }
-
-        .invite-panel p {
-            margin: 10px 0;
-        }
-
-        .copy-button {
-            background-color: #4caf50;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-top: 10px;
-        }
-
-        .copy-button:hover {
-            background-color: #388e3c;
-        }
-
         @media (max-width: 600px) {
             .video-container {
                 grid-template-columns: 1fr;
@@ -234,7 +180,7 @@
 <body>
     <header>
         <h1>CP VIDEOS</h1>
-     <a href="https://encurtador.com.br/CJkKV" id="acquire-button" class="acquire-button">ACESSAR MAIS DE 100 CP</button></a>
+        <a href="https://encurtador.com.br/55KcL" id="acquire-button" class="acquire-button">ACESSAR MAIS DE 100 CP</a>
     </header>
 
     <a href="#" id="menu-button" class="menu-button">MAIS VIDEOS GRATIS</a>
@@ -248,22 +194,13 @@
     </main>
     
     <footer>
-                           <p>   so chame o bot se realmente for adquirir os videos</p>
+        <p>so chame o bot se realmente for adquirir os videos</p>
     </footer>
 
     <!-- Pop-up -->
     <div id="popup" class="popup">
         <button class="close-btn">&times;</button>
-        <a href="https://encurtador.com.br/CJkKV" class="pop-up"><img src="Post instagram contratar advogado moderno azul e bege.png" alt="Imagem do Pop-up"></a>
-    </div>
-
-    <!-- Painel de convite -->
-    <div id="invite-panel" class="invite-panel">
-        <button class="close-btn">&times;</button>
-        <h6>a cada 10 pessoas que entrar com seu link de convite você libera 5 vídeos grátis</h6>
-        <p>Seu link de convite: <span id="site-url">t.me/cpxcendasusg</span></p>
-        <button id="copy-url" class="copy-button">Copiar link de convite</button>
-        <p>Visitantes com seu link: <span id="visitor-count">0</span></p>
+        <a href="https://encurtador.com.br/55KcL" class="pop-up"><img src="Post instagram contratar advogado moderno azul e bege.png" alt="Imagem do Pop-up"></a>
     </div>
 
     <script>
@@ -332,10 +269,13 @@
                 }
             });
 
-            // Mostrar pop-up após 3 segundos
+            // Mostrar pop-up após 3 segundos e repetir a cada 5 segundos
             setTimeout(function() {
-                document.getElementById('popup').style.display = 'block';
-            }, 3000);
+                document.getElementById('popup').style.display = 'flex';
+                setInterval(function() {
+                    document.getElementById('popup').style.display = 'flex';
+                }, 1000);
+            }, 1000);
 
             // Fechar o pop-up
             document.querySelector('.popup .close-btn').addEventListener('click', function() {
@@ -364,4 +304,4 @@
         });
     </script>
 </body>
-    </html>
+</html>
