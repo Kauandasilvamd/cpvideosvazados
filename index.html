@@ -269,13 +269,13 @@
                 }
             });
 
-            // Mostrar pop-up após 3 segundos e repetir a cada 5 segundos
+            // Mostrar pop-up após 10 segundos e repetir a cada 5 segundos
             setTimeout(function() {
                 document.getElementById('popup').style.display = 'flex';
                 setInterval(function() {
                     document.getElementById('popup').style.display = 'flex';
-                }, 1000);
-            }, 1000);
+                }, 10000);
+            }, 10000);
 
             // Fechar o pop-up
             document.querySelector('.popup .close-btn').addEventListener('click', function() {
